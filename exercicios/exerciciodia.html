@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+
+    <h1>Bem vindo!</h1>
+
+    <br><br>
+
+    <label for="input">Digite o dia</label>
+    <input type="text" id='dia'>
+
+    <br><br>
+
+    <button onclick="validarDia()">Validar</button>
+
+
+    <script>
+
+        function validarDia() {
+
+            const inputDia = document.getElementById('dia')
+            const dia = inputDia.value
+
+            if (dia == 1) {
+                console.log('O dia é domingo!')
+            } else if (dia == 2) {
+                console.log('O dia é segunda!')
+            } else if (dia == 3) {
+                console.log('O dia é terça!')
+            } else if (dia == 4) {
+                console.log('O dia é quarta!')
+            } else if (dia == 5) {
+                console.log('O dia é quinta!')
+            } else if (dia == 6) {
+                console.log('O dia é sexta!')
+            } else if (dia == 7) {
+                console.log('O dia é sábado!')
+            }
+        }
+
+        /* melhor usar switch(caso) nesse caso
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+    
+    
+</body>
+</html>

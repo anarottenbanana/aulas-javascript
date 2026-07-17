@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            padding: 20px;
+            margin-top: 50px;
+            width: 300px;
+            border: solid 1px red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Calcule suas notas</h1>
+
+    <br><br>
+
+    <label for="input">Digite seu nome</label>
+    <input type="text" id="nome">
+
+    <br><br>
+
+    <label for="input">Digite a primeira nota</label>
+    <input type="text" id="nota1">
+
+    <br><br>
+
+    <label for="input">Digite a segunda nota</label>
+    <input type="text" id="nota2">
+
+    <br><br>
+
+    <label for="input">Digite a terceira nota</label>
+    <input type="text" id="nota3">
+
+    <br><br>
+
+    <button onclick="validarNotas()">Calcular média</button>
+
+    <div id="validacao">
+        Aguardando validação ...
+    </div>
+
+    <script>
+
+        function validarNotas() {
+
+            const nome = document.getElementById('nome')
+            const nota1 = document.getElementById('nota1')
+            const nota2 = document.getElementById('nota2')
+            const nota3 = document.getElementById('nota3')
+
+            const conversaonota1 = Number.parseFloat(nota1.value)
+            const conversaonota2 = Number.parseFloat(nota2.value)
+            const conversaonota3 = Number.parseFloat(nota3.value)
+
+            const calcnota1 = Number(nota1.value)
+            const calcnota2 = Number(nota2.value)
+            const calcnota3 = Number(nota3.value)
+
+
+            const media = (calcnota1 + calcnota2 + calcnota3) / 3
+            console.log(media)
+
+            let situacao
+
+            if (media < 3) {
+                situacao = 'reprovado'
+            } else if (media < 7) {
+                situacao = 'em recuperação'
+            } else if (media < 10) {
+                situacao = 'aprovado'
+            }
+
+            const divValidacao = document.getElementById('validacao')
+            divValidacao.innerHTML += '<p> Nome: ' + nome.value + ' - Média: ' + media + ' - Situação: ' + situacao + ' </p>'
+
+        }
+
+    </script>
+
+    <br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

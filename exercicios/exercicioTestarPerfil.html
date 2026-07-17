@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    // Testar perfil com as seguintes condições:
+    // adm -> Acesso permitido!
+    // Compras ou Vendas -> Acesso negado!
+    // TI -> Acesso Master!
+    // Qualquer outro perfil: Perfil desconhecido.
+
+    <h1>Bem vindo!</h1>
+
+    <br><br>
+
+    <label for="input">Digite seu perfil</label>
+    <input type="text" id='perfil'>
+
+    <br><br>
+
+    <button onclick="validarPerfil()">Validar</button>
+    <button onclick="limparCampo()">Limpar</button>
+
+
+    <script>
+
+        function validarPerfil() {
+
+            const inputPerfil = document.getElementById('perfil')
+            const perfil = inputPerfil.value
+            
+            if (perfil == 'ADM') {
+                console.log('Acesso permitido!')
+            } else if (perfil == 'Compras' || perfil == 'Vendas') {
+                console.log('Acesso negado!')
+            } else if (perfil == 'TI') {
+                console.log('Acesso Master!')
+            } else {
+                console.log('Perfil não identificado.')
+            }
+
+        }
+
+
+        function limparCampo() {
+            
+            const inputPerfil = document.getElementById('perfil')
+            inputPerfil.value = ''
+            
+        }
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: rgb(29, 24, 28);
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-weight: bolder;
+      font-size: x-large;
+      display: flex;
+      color: rgb(219, 208, 226);
+    }
+
+    .botao-calcular {
+      border: solid 2px black;
+      background-color: rgb(80, 43, 71);
+      color: rgb(219, 208, 226);
+      border-radius: 8px;
+      padding: 10px 16px;
+      cursor: pointer;
+      font-family: monospace;
+      font-weight: bolder;
+      margin-top: 8px;
+    }
+
+    .botoesestilo {
+      border: solid 2px black;
+      background-color: rgb(29, 24, 28);
+      color: rgb(219, 208, 226);
+      border-radius: 8px;
+      padding: 8px;
+      width: 70%;
+      cursor: pointer;
+    }
+
+    .campo {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 14px;
+      font-size: medium;
+    }
+
+    .abamenu {
+      background-color: rgb(80, 43, 71);
+      width: 300px;
+      height: 100vh;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    h2 {
+      color: rgb(219, 208, 226);
+    }
+
+    .conteudo {
+      margin-left: 30px;
+      padding: 30px 40px;
+    }
+
+    .divbotoes {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 32px;
+      align-items: center;
+    }
+
+    #c01,
+    #c02,
+    #c05,
+    #c07,
+    #c10 {
+      display: none;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="abamenu">
+    <h2>MENU</h2>
+
+    <div class="divbotoes">
+      <button class="botoesestilo" onclick="mostrarc01()">EXERCICIO 1</button>
+      <button class="botoesestilo" onclick="mostrarc02()">EXERCICIO 2</button>
+      <button class="botoesestilo" onclick="mostrarc05()">EXERCICIO 3</button>
+      <button class="botoesestilo" onclick="mostrarc07()">EXERCICIO 4</button>
+      <button class="botoesestilo" onclick="mostrarc10()">EXERCICIO 5</button>
+    </div>
+  </div>
+
+  <div class="conteudo">
+
+    <div id="c01">
+
+      <h3>C.1 — Data completa (dia, mês, ano) válida ou inválida</h3>
+      <div class="campo">
+        <label>Dia:</label>
+        <input type="number" id="c01dia">
+      </div>
+      <div class="campo">
+        <label>Mês:</label>
+        <input type="number" id="c01mes">
+      </div>
+      <div class="campo">
+        <label>Ano:</label>
+        <input type="number" id="c01ano">
+      </div>
+      <button class="botao-calcular" onclick="validarc01()">Verificar</button>
+      <div class="resultado" id="c01resultado"></div>
+
+    </div>
+
+    <div id="c02">
+      <h3>C.02 — Imposto progressivo em três faixas</h3>
+      <div class="campo">
+        <label>Salário anual (R$):</label>
+        <input type="number" id="c02-salario">
+      </div>
+      <button class="botao-calcular" onclick="calcularC02()">Calcular imposto</button>
+      <div class="resultado" id="c02resultado"></div>
+    </div>
+
+    <div id="c05">
+      <h3>C.05 — Multa de biblioteca por faixas de dias</h3>
+      <div class="campo">
+        <label>Dias de atraso:</label>
+        <input type="number" id="c05-dias">
+      </div>
+      <button class="botao-calcular" onclick="calcularC05()">Calcular multa</button>
+      <div class="resultado" id="c05resultado"></div>
+    </div>
+
+
+    <div id="c07">
+      <h3>C.07 — Equação do segundo grau: análise sem calcular raízes</h3>
+      <div class="campo">
+        <label>a:</label>
+        <input type="number" id="c07a">
+      </div>
+      <div class="campo">
+        <label>b:</label>
+        <input type="number" id="c07b">
+      </div>
+      <div class="campo">
+        <label>c:</label>
+        <input type="number" id="c07c">
+      </div>
+      <button class="botao-calcular" onclick="calcularC07()">Analisar</button>
+      <div class="resultado" id="c07resultado"></div>
+    </div>
+
+
+    <div id="c10">
+      <h3>C.10 — Preço final com cupom e valor mínimo</h3>
+      <div class="campo">
+        <label>Preço base (R$):</label>
+        <input type="number" id="c10preco">
+      </div>
+      <div class="campo">
+        <label>Cupom:</label>
+        <select id="c10cupom">
+          <option value="0">0 - Nenhum</option>
+          <option value="1">1 - Cupom A (10%, mínimo R$50)</option>
+          <option value="2">2 - Cupom B (15%, mínimo R$100)</option>
+        </select>
+      </div>
+      <button class="botao-calcular" onclick="calcularC10()">Calcular preço final</button>
+      <div class="resultado" id="c10resultado"></div>
+    </div>
+
+
+    <script>
+
+      function mostrarc01() {
+
+        document.getElementById("c01").style.display = "block";
+        document.getElementById("c02").style.display = "none";
+        document.getElementById("c05").style.display = "none";
+        document.getElementById("c07").style.display = "none";
+        document.getElementById("c10").style.display = "none";
+      }
+
+      function mostrarc02() {
+
+        document.getElementById("c01").style.display = "none";
+        document.getElementById("c02").style.display = "block";
+        document.getElementById("c05").style.display = "none";
+        document.getElementById("c07").style.display = "none";
+        document.getElementById("c10").style.display = "none";
+      }
+
+      function mostrarc05() {
+
+        document.getElementById("c01").style.display = "none";
+        document.getElementById("c02").style.display = "none";
+        document.getElementById("c05").style.display = "block";
+        document.getElementById("c07").style.display = "none";
+        document.getElementById("c10").style.display = "none";
+      }
+
+      function mostrarc07() {
+
+        document.getElementById("c01").style.display = "none";
+        document.getElementById("c02").style.display = "none";
+        document.getElementById("c05").style.display = "none";
+        document.getElementById("c07").style.display = "block";
+        document.getElementById("c10").style.display = "none";
+      }
+
+      function mostrarc10() {
+
+        document.getElementById("c01").style.display = "none";
+        document.getElementById("c02").style.display = "none";
+        document.getElementById("c05").style.display = "none";
+        document.getElementById("c07").style.display = "none";
+        document.getElementById("c10").style.display = "block";
+      }
+
+
+      function validarc01() {
+
+        let dia = Number(document.getElementById('c01dia').value);
+        let mes = Number(document.getElementById('c01mes').value);
+        let ano = Number(document.getElementById('c01ano').value);
+
+        let diasMes
+
+        if (mes == 2) {
+          if ((ano % 400 == 0)) {
+            diasMes = 29;
+          } else {
+            diasMes = 28;
+          }
+        } else if (mes == 4 || mes == 6 || mes == 9 || mes == 11) {
+          diasMes = 30;
+        } else if (mes >= 1 && mes <= 12) {
+          diasMes = 31;
+        } else if (mes > 12 || mes <= 0) {
+          const divValidacao = document.getElementById('c01resultado')
+          divValidacao.innerHTML = '<p>data inválida</p>'
+        }
+
+        if (dia >= 1 && dia <= diasMes) {
+          const divValidacao = document.getElementById('c01resultado')
+          divValidacao.innerHTML = '<p>data válida</p>'
+        } else {
+          const divValidacao = document.getElementById('c01resultado')
+          divValidacao.innerHTML = '<p>data inválida</p>'
+        }
+
+        if (ano <= 0) {
+          const divValidacao = document.getElementById('c01resultado')
+          divValidacao.innerHTML = '<p>data inválida</p>'
+        }
+      }
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h1 {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: xx-large;
+        font-weight: bolder;
+        color: aliceblue;
+    }
+
+    body {
+        background-color: rgb(46, 47, 48);
+    }
+
+    * {
+        box-sizing: border-box;
+        padding: 0%;
+        margin: 0%;
+    }
+
+    .impressaoLista {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 600px;
+        font-size: medium;
+    }
+
+    .formulario {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 32px;
+    }
+
+    .botoes {
+        margin: 8px;
+        display: flex;
+        flex-direction: row;
+        width: 400px;
+        gap: 8px;
+        margin: 16px;
+
+    }
+
+    .botoesestilo {
+        border: solid 2px black;
+        background-color: rgb(63, 78, 85);
+        color: rgb(219, 208, 226);
+        border-radius: 8px;
+        padding: 8px;
+        width: 70%;
+        cursor: pointer;
+    }
+
+    label {
+        color: whitesmoke;
+        font-size: large;
+        margin-top: 16px;
+    }
+</style>
+
+<body>
+
+    <div class="formulario">
+
+        <h1>"Bem vindo! Crie sua lista e gerencie-a"</h1>
+
+        <label>Digite o nome do aluno</label>
+        <input type="text" id="input">
+
+    </div>
+
+    <div class="botoes">
+
+        <button class="botoesestilo" onclick="addfinallista">adicionar ao final da lista</button>
+        <button class="botoesestilo">adicionar ao inicio da lista</button>
+        <button class="botoesestilo">remover do final da lista</button>
+        <button class="botoesestilo">adicionar do inicio da lista</button>
+
+
+    </div>
+
+
+    <div class="impressaoLista"></div>
+
+    <script>
+
+        function addfinallista() {
+
+            let nomes = document.getElementById('input')
+            let lista = ['']
+            lista.push('input')
+            console.log(lista.toString())
+            impressaoLista.innerHTML += '<p> (nomes) </p>'
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

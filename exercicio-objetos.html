@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" placeholder="aluno" id="nome"> <br>
+    <input type="text" placeholder="código" id="codigo"> <br>
+    <input type="text" placeholder="nota1" id="nota1"> <br>
+    <input type="text" placeholder="nota2" id="nota2"> <br>
+    <input type="text" placeholder="nota3" id="nota3"> <br>
+    <br> 
+    <button onclick="cadastrar()">Cadastrar</button>
+
+
+    <script>
+
+        function cadastrar() {
+
+            let nome = document.getElementById('nome')
+            let codigo = document.getElementById('codigo')
+            let nota1 = document.getElementById('nota1')
+            let nota2 = document.getElementById('nota2')
+            let nota3 = document.getElementById('nota3')
+
+            let aluno = {
+                nome: nome.value,
+                codigo: codigo.value,
+                nota1: nota1.value,
+                nota2: nota2.value,
+                nota3: nota3.value,
+            }
+            
+            console.log(aluno)
+
+            const nomeN = Number(nome.value)
+            const codigoN = Number(codigo.value)
+            const nota1N = Number(nota1.value)
+            const nota2N = Number(nota2.value)
+            const nota3N = Number(nota3.value)
+            
+            
+
+
+            let media = ((nota1N + nota2N + nota3N) / 3)
+            console.log(media)
+
+
+        }
+
+
+
+
+
+
+
+    </script>
+
+
+
+ 
+
+
+
+
+    
+</body>
+</html>
